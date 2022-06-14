@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tüm Kitaplar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding:10px">
+    <ion-card *ngFor="let book of books">
+      <ion-card-header>
+        <img style="width: 100%;height: auto;" [src]="getImageUrl(book)" alt="">
+        <ion-card-subtitle>{{book.Yazar}}</ion-card-subtitle>
+        <ion-card-title>{{book.Ad}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div>Tür: {{book.Tur}}</div>
+        <div>ISBN: {{book.Isbn}}</div>
+        <div>
+          <ion-button (click)="duzenle(book)" expand="block" fill="clear"
+            shape="round">
+            <ion-icon name="create-outline"></ion-icon>&nbsp;
+            Düzenle
+          </ion-button>
+          <ion-button (click)="sil(book)" color="danger" expand="block" fill="clear"
+            shape="round">
+            <ion-icon name="trash-outline"></ion-icon>&nbsp;
+            Sil
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

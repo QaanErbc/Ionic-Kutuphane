@@ -1,0 +1,51 @@
+<ion-app>
+  <ion-menu side="start" contentId="first" menuId="first">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title *ngIf="userService.user?.name">Hoşgeldiniz {{userService.user.name}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-button color="warning" (click)="goMyBooksPage()" expand="block" fill="clear"
+            shape="round">
+            <ion-icon name="book-outline"></ion-icon>&nbsp;
+            Emanetlerim&nbsp;<ion-badge color="primary">{{userService.emanetCount}}</ion-badge>
+          </ion-button>
+        </ion-item>
+        <ion-item *ngIf="userService.isAdmin">
+          <ion-button (click)="goAllBooksPage()" expand="block" fill="clear" shape="round">
+            <ion-icon name="list-outline"></ion-icon>&nbsp;
+            Tüm Kitaplar
+          </ion-button>
+        </ion-item>
+        <ion-item *ngIf="userService.isAdmin">
+          <ion-button (click)="goAllTursPage()" expand="block" fill="clear" shape="round">
+            <ion-icon name="list-outline"></ion-icon>&nbsp;
+            Tüm Türler
+          </ion-button>
+        </ion-item>
+        <ion-item *ngIf="userService.isAdmin">
+          <ion-button (click)="goAddBookPage()" expand="block" fill="clear" shape="round">
+            <ion-icon name="add-outline"></ion-icon>&nbsp;
+            Kitap Ekle
+          </ion-button>
+        </ion-item>
+        <ion-item *ngIf="userService.isAdmin">
+          <ion-button (click)="goAddTurPage()" expand="block" fill="clear" shape="round">
+            <ion-icon name="add-outline"></ion-icon>&nbsp;
+            Tür Ekle
+          </ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-button (click)="cikis()" color="danger" expand="block" fill="clear" shape="round">
+            <ion-icon name="log-out-outline"></ion-icon>&nbsp;
+            Çıkış Yap
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main id="first"></ion-router-outlet>
+</ion-app>

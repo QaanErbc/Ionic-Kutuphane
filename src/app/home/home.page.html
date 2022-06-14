@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Kitaplar
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openFirst()">
+        <ion-icon name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div style="padding:10px">
+    <ion-card *ngFor="let book of books">
+      <ion-card-header>
+        <img style="width: 100%;height: auto;" [src]="getImageUrl(book)" alt="">
+        <ion-card-subtitle>{{book.Yazar}}</ion-card-subtitle>
+        <ion-card-title>{{book.Ad}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <div>Tür: {{book.Tur}}</div>
+        <div>ISBN: {{book.Isbn}}</div>
+        <div>
+          <ion-button [disabled]="book.Durum !='Kiralanmadı'" (click)="kirala(book)" expand="block" fill="clear"
+            shape="round">
+            Kirala
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

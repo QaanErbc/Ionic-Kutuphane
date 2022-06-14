@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Kitap Ekle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="addDiv">
+    <form [formGroup]="addForm">
+      <ion-item>
+        <ion-label position="floating">Kitap Adı</ion-label>
+        <ion-input formControlName="ad"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Kitap Yazarı</ion-label>
+        <ion-input formControlName="yazar"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Kitap Türü</ion-label>
+        <ion-select formControlName="tur" placeholder="Tür Seçiniz">
+          <ion-select-option *ngFor="let tur of turler" [value]="tur.id">
+            {{tur.ad}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">ISBN</ion-label>
+        <ion-input formControlName="isbn"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Kitap Resmi</ion-label>
+        <ion-input formControlName="resim" [(ngModel)]="imageName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="selectImage()" expand="block" fill="clear" shape="round">
+          Resim Yükle
+        </ion-button>
+      </ion-item>
+    </form>
+    <ion-button [disabled]="!addForm.valid" (click)="ekle()" expand="block" fill="clear" shape="round">
+      Kitabı Ekle
+    </ion-button>
+  </div>
+</ion-content>

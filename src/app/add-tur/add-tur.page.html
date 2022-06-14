@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Tür Ekle</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="addDiv">
+    <form [formGroup]="addForm">
+      <ion-item>
+        <ion-label position="floating">Tür Adı</ion-label>
+        <ion-input formControlName="ad"></ion-input>
+      </ion-item>
+    </form>
+    <ion-button [disabled]="!addForm.valid" (click)="ekle()" expand="block" fill="clear" shape="round">
+      Türü Ekle
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Türler</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let tur of turler">
+    <ion-item>
+      <ion-label>{{tur.id}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>{{tur.ad}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-button color="primary" (click)="editTur(tur)" expand="block" fill="clear" shape="round">
+        Düzenle
+      </ion-button>
+    </ion-item>
+    <ion-item>
+      <ion-button color="danger" (click)="deleteTur(tur)" expand="block" fill="clear" shape="round">
+        Sil
+      </ion-button>
+    </ion-item>
+  </ion-card>
+</ion-content>

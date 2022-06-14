@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="book.Ad">{{book.Ad}} Kitabı Düzenle</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="editDiv">
+    <form [formGroup]="editForm">
+      <ion-item>
+        <ion-label position="floating">Kitap Adı</ion-label>
+        <ion-input formControlName="ad"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Kitap Yazarı</ion-label>
+        <ion-input formControlName="yazar"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Kitap Türü</ion-label>
+        <ion-select formControlName="tur" placeholder="Tür Seçiniz">
+          <ion-select-option *ngFor="let tur of turler" [value]="tur.id">
+            {{tur.ad}}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">ISBN</ion-label>
+        <ion-input formControlName="isbn"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Kitap Resmi</ion-label>
+        <ion-input formControlName="resim" [(ngModel)]="imageName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button (click)="selectImage()" expand="block" fill="clear" shape="round">
+          Resim Yükle
+        </ion-button>
+      </ion-item>
+    </form>
+    <ion-button [disabled]="!editForm.valid" (click)="duzenle()" expand="block" fill="clear" shape="round">
+      Kaydet
+    </ion-button>
+  </div>
+</ion-content>

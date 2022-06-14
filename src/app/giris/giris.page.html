@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Giriş Yap </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 10px;margin-top: 10vh;">
+    <ion-icon style="font-size: xx-large;" name="book-outline"></ion-icon>
+    <br>
+    <span style="font-weight: 700;font-size: large;"><b>Kütüphane Otomasyonu</b></span>
+    <ion-item style="margin-top: 20px;">
+      <ion-label position="floating">Eposta veya kullanıcı adı</ion-label>
+      <ion-input [(ngModel)]="loginModel.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Şifre</ion-label>
+      <ion-input type="password" [(ngModel)]="loginModel.password"></ion-input>
+    </ion-item>
+    <ion-button [disabled]="!(loginModel.password && loginModel.username)" (click)="girisYap()" expand="block" shape="round">
+      Giriş Yap
+    </ion-button>
+    <ion-button routerLink="/kayit" expand="block" fill="clear" shape="round">
+      Kayıt Olmak İçin Tıkla
+    </ion-button>
+  </div>
+</ion-content>

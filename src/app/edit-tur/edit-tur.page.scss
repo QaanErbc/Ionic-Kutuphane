@@ -1,0 +1,32 @@
+ion-content {
+  // --background: rgb(4, 0, 255);
+  // --background: linear-gradient(53deg, rgba(4, 0, 255, 0) 24%, rgba(59, 182, 232, 1) 73%);
+  --background: rgb(4,0,255);
+  --background: radial-gradient(circle, rgba(4,0,255,0) 24%, rgba(59,182,232,1) 73%);
+  animation: bgAnimation 15s infinite;
+
+}
+
+#editDiv {
+  background: #fff;
+  margin-top: 18vh;
+  padding: 5px;
+  border-radius: 7px;
+  margin-left: 4%;
+  margin-right: 4%;
+  opacity: .9;
+
+
+  -webkit-box-shadow: 10px 10px 15px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 15px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 15px -12px rgba(0, 0, 0, 0.75);
+}
+
+@keyframes bgAnimation {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100%{
+    filter: hue-rotate(360deg);
+  }
+}

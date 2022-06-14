@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/giris"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Kayıt Ol</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 10px;margin-top: 10vh;">
+    <ion-icon style="font-size: xx-large;" name="book-outline"></ion-icon>
+    <br>
+    <span style="font-weight: 700;font-size: large;"><b>Kütüphane Otomasyonu</b></span>
+    <ion-item style="margin-top: 20px;">
+      <ion-label position="floating">Ad Soyad</ion-label>
+      <ion-input [(ngModel)]="registerModel.name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Eposta</ion-label>
+      <ion-input [(ngModel)]="registerModel.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Kullanıcı Adı</ion-label>
+      <ion-input [(ngModel)]="registerModel.username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Şifre</ion-label>
+      <ion-input type="password" [(ngModel)]="registerModel.password"></ion-input>
+    </ion-item>
+    <ion-button [disabled]="!(registerModel.name && registerModel.email && registerModel.username && registerModel.password)" (click)="kayitOl()" expand="block" shape="round">
+      Kayıt Ol
+    </ion-button>
+  </div>
+</ion-content>
